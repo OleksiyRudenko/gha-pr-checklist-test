@@ -31,3 +31,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path: .github/pr-checklists/${{ github.event.label.name }}.md
+  add-pr-comment:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Add PR Comment
+          uses: oleksiyrudenko/gha-pr-comment-per-label@dev
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            labels: '["bug","question"]'
