@@ -32,6 +32,9 @@ On a targeted repo:
 
 ## Test cases
 
+See [testing PRs](https://github.com/OleksiyRudenko/ghar-pr-checklist/pulls?q=is%3Apr+is%3Aclosed+label%3ATest)
+that cover tests below.
+
 ### Pre-requisites:
 - PR checklist files (Checklists) are defined
 - required labels (Eligible Labels) are set up
