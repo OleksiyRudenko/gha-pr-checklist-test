@@ -36,6 +36,15 @@ and adjust it accordingly.
 
 **Desired outcome:** Relevant Checklist added as a comment to the PR's conversation
 
+### Test P3. Happy path with multiple checklists
+
+1. User **starts opening** a PR targeted at an Eligible Branch from a branch on the same repo
+1. User adds 2 or more Eligible Labels and creates a PR
+1. Action gets triggered
+
+**Desired outcome:** Relevant Checklists added as comments to the PR's conversation
+one per each Eligible Label
+
 ### Test N1. PR doesn't target an Eligible Branch
 
 1. User creates a PR targeted at a branch that is **not** an Eligible Branch
