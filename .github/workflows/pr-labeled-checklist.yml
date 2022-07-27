@@ -3,26 +3,30 @@
 # when a PR is targeted at a specific branch (branches)
 # and a specific label (labels) are assigned.
 #
-# This action uses:
-# - actions/github-script@v6
+# Checklist file name must match label name and extension '.md'
 #
+# This action uses:
+# - actions/checkout@v3
+# - machine-learning-apps/pr-comment@master
 on:
   pull_request_target:
+    types: [ labeled ]
     branches:
       - master
       - main
 
 jobs:
   add-pr-checklist:
+    # define Eligible Labels; consider also using startsWith method
+    # (see also https://docs.github.com/en/actions/learn-github-actions/expressions#startswith)
+    if: contains( [ 'test-pr-checklist1', 'test-pr-checklist2' ], github.event.issue.label.name )
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/checkout@v3
+      # use https://github.com/actions/download-artifact to get templates from a resource other than the PR's targeted branch
+      # use https://github.com/actions/github-script to run GtiHUb Action API methods
+      - uses: machine-learning-apps/pr-comment@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Hey @author! 👋\nThanks for opening this PR!'
-            })
+          path: .github/pr-checklists/${{ github.event.issue.label.name }}.md
