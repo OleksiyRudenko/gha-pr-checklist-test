@@ -11,9 +11,9 @@
 on:
   pull_request_target:
     types: [ labeled ]
-    branches:
-      - master
-      - main
+#    branches:
+#      - master
+#      - main
 
 jobs:
   add-pr-checklist:
