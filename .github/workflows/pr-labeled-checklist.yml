@@ -3,7 +3,7 @@
 # when a PR is targeted at a specific branch (branches)
 # and a specific label (labels) are assigned.
 #
-# Checklist file name must match label name and extension '.md'
+# Checklist file name must match label name and have a extension '.md'
 #
 # This action uses:
 # - actions/checkout@v3
