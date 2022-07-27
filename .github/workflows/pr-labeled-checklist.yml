@@ -32,6 +32,7 @@ jobs:
         with:
           path: .github/pr-checklists/${{ github.event.label.name }}.md
   add-pr-comment:
+    name: Add PR comment (pr-labelled-comment.yml)
     runs-on: ubuntu-latest
     steps:
       - name: Add PR Comment
