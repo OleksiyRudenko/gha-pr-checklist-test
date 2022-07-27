@@ -3,7 +3,7 @@
 # when a PR is targeted at a specific branch (branches)
 # and a specific label (labels) are assigned.
 #
-# Checklist file name must match label name and extension '.md'
+# Checklist file name must match label name and have a extension '.md'
 #
 # This action uses:
 # - actions/checkout@v3
@@ -11,15 +11,15 @@
 on:
   pull_request_target:
     types: [ labeled ]
-    branches:
-      - master
-      - main
+#    branches:
+#      - master
+#      - main
 
 jobs:
   add-pr-checklist:
     # define Eligible Labels; consider also using startsWith method
     # (see also https://docs.github.com/en/actions/learn-github-actions/expressions#startswith)
-    if: ${{ contains( [ 'test-pr-checklist1', 'test-pr-checklist2' ], github.event.issue.label.name ) }}
+    if: contains( fromJson('["test-pr-checklist1", "test-pr-checklist2"]'), github.event.issue.label.name )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
