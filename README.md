@@ -1,24 +1,44 @@
-# GitHub Action Recipe - PR Checklist testing
+# PR Labeled Checklist - A GitHub Action Recipe (ghar)
 
-A repo to test auto-commenting GitHub action recipe.
-The recipe adds a pre-defined checklist upon labeling a PR, based on a label value.
+A GitHub Action Recipe that adds a pre-defined checklist
+upon labeling a PR, based on a label value.
+
+Version 0.9
 
 ## Use case
 
 As a repo maintainer I want to 
-(GOAL:) have a relevant checklist added as a comment to a PR's conversation
-(TRIGGER:) when an eligible label added to the PR that targets specific branches
+(GOAL:) add a relevant checklist as a comment to a PR's conversation
+(CONDITION:) when an eligible label added to the PR that targets specific branches
 (ENABLE:) so that the PR opener and/or project maintainers
 could check if the contribution matches requirements
 and adjust it accordingly.
 
+## How to use
+
+On a targeted repo^
+1. Create labels that you will use to trigger the action (Eligible Labels).
+   It is recommended to use dashes or underscores instead of spaces.
+   Examples: `staging-deployment`, `dry_run`
+1. Create checklists, one per each label, where each checklist filename matches an Eligibale Label name.
+   Examples: `staging-deployment.md`, `dry_run.md`
+   Recommended (default) path to checklists is `.github/pr-checklists/`.
+1. Copy the [pr-labeled-checklist workflow](.github/workflows/pr-labeled-checklist.yml) and edit it as appropriate
+1. Test your setup to make sure it works as expected
+
+> **NB!** You will want to have the above set up before collaborators for your repo
+> so that templates are available on their forks. Alternatively you may want to adjust
+> the workflow so it downloads checklists from a source different than a PR sourcing repo
+> (e.g. from the targeted repo explicitly). This way you will ensure the most up-to-date
+> checklists are always in use.
+
 ## Test cases
 
 ### Pre-requisites:
-- PR checklist files (Checklists) are installed
+- PR checklist files (Checklists) are defined
 - required labels (Eligible Labels) are set up
 - eligible target branches (Eligible Branches) are defined
-- GitHub action `pr-labeled-checklist` (Action) is installed and configured
+- GitHub action `pr-labeled-checklist` (Action) is created and configured
 
 ### Test P1. Happy path on a local PR
 
