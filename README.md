@@ -20,9 +20,17 @@ and adjust it accordingly.
 - eligible target branches (Eligible Branches) are defined
 - GitHub action `pr-labeled-checklist` (Action) is installed and configured
 
-### Test P1. Happy path to the targeted use case
+### Test P1. Happy path on a local PR
 
-1. User creates a PR targeted at an Eligible Branch
+1. User creates a PR targeted at an Eligible Branch from a branch on the same repo
+1. User adds an Eligible Label
+1. Action gets triggered
+
+**Desired outcome:** Relevant Checklist added as a comment to the PR's conversation
+
+### Test P2. Happy path on a PR from a fork
+
+1. User creates a PR targeted at an Eligible Branch from a forked repo
 1. User adds an Eligible Label
 1. Action gets triggered
 
