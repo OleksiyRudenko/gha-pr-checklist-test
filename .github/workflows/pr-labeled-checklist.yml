@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v3
       # use https://github.com/actions/download-artifact to get templates from a resource other than the PR's targeted branch
       # use https://github.com/actions/github-script to run GtiHUb Action API methods
-      - uses: machine-learning-apps/pr-comment@master
+      - uses: oleksiyrudenko/pr-comment@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
