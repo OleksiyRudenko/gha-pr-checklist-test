@@ -1,0 +1,28 @@
+# This action adds checklists from .github/pr-checklists/
+# to PR conversations
+# when a PR is targeted at a specific branch (branches)
+# and a specific label (labels) are assigned.
+#
+# This action uses:
+# - actions/github-script@v6
+#
+on:
+  pull_request_target:
+    branches:
+      - master
+      - main
+
+jobs:
+  add-pr-checklist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Hey @author! 👋\nThanks for opening this PR!'
+            })
