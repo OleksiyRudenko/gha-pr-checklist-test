@@ -16,7 +16,7 @@ and adjust it accordingly.
 
 ## How to use
 
-On a targeted repo^
+On a targeted repo:
 1. Create labels that you will use to trigger the action (Eligible Labels).
    It is recommended to use dashes or underscores instead of spaces.
    Examples: `staging-deployment`, `dry_run`
