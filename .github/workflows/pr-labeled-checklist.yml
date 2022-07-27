@@ -16,15 +16,10 @@ on:
       - main
 
 jobs:
-  logging:
-    runs-on: ubuntu-latest
-    steps:
-      - name: logging
-        run: echo 'Label name ${{github.event.label.name}}'
   add-pr-checklist:
     # define Eligible Labels; consider also using startsWith method
     # (see also https://docs.github.com/en/actions/learn-github-actions/expressions#startswith)
-    if: contains( fromJson('["test-pr-checklist1", "test-pr-checklist2"]'), github.event.issue.label.name )
+    if: contains( fromJson('["test-pr-checklist1", "test-pr-checklist2"]'), github.event.label.name )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
