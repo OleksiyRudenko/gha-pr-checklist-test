@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   add-pr-comment:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Add PR Comment
         uses: oleksiyrudenko/gha-pr-comment-per-label@dev
