@@ -26,11 +26,9 @@ On a targeted repo:
 1. Copy the [pr-labeled-checklist workflow](.github/workflows/pr-labeled-checklist.yml) and edit it as appropriate
 1. Test your setup to make sure it works as expected
 
-> **NB!** You will want to have the above set up before collaborators for your repo
-> so that templates are available on their forks. Alternatively you may want to adjust
-> the workflow so it downloads checklists from a source different than a PR sourcing repo
-> (e.g. from the targeted repo explicitly). This way you will ensure the most up-to-date
-> checklists are always in use.
+> **NB!** You will want to have your collaborators' fork contain the latest
+> versions of the workflow and templates on their forks' source branches as
+> these (and not the versions on the targeted repo and branch) are used by GitHub actions engine.
 
 ## Test cases
 
