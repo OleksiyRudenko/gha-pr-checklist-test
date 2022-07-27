@@ -16,6 +16,11 @@ on:
 #      - main
 
 jobs:
+  logging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: logging
+        run: echo 'Label name ${{github.event.issue.label.name}}'
   add-pr-checklist:
     # define Eligible Labels; consider also using startsWith method
     # (see also https://docs.github.com/en/actions/learn-github-actions/expressions#startswith)
